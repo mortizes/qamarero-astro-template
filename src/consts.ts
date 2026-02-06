@@ -1,26 +1,26 @@
-export const SITE_TITLE = "Metafi - Modern Astro Template";
+export const SITE_TITLE = "Qamarero - Software TPV para Hostelería";
 export const SITE_DESCRIPTION =
-  "A modern, fully featured Astro template built with Shadcn/UI, TailwindCSS and TypeScript, perfect for your next web application.";
+  "Software de gestión para hostelería: TPV, comandero digital, carta QR, reservas, delivery y KDS. Todo incluido por 99€/mes.";
 
 export const SITE_METADATA = {
   title: {
     default: SITE_TITLE,
-    template: "%s | Metafi",
+    template: "%s | Qamarero",
   },
   description: SITE_DESCRIPTION,
   keywords: [
-    "Astro",
-    "React",
-    "JavaScript",
-    "TypeScript",
-    "TailwindCSS",
-    "Template",
-    "Shadcn/UI",
-    "Web Development",
+    "TPV hostelería",
+    "software restaurante",
+    "comandero digital",
+    "carta QR",
+    "reservas restaurante",
+    "delivery",
+    "KDS cocina",
+    "gestión hostelería",
   ],
-  authors: [{ name: "Metafi Team" }],
-  creator: "Metafi Team",
-  publisher: "Metafi",
+  authors: [{ name: "Qamarero" }],
+  creator: "Qamarero",
+  publisher: "Qamarero",
   robots: {
     index: true,
     follow: true,
@@ -39,13 +39,13 @@ export const SITE_METADATA = {
   openGraph: {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    siteName: "Metafi",
+    siteName: "Qamarero",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Metafi - Modern Astro Template",
+        alt: "Qamarero - Software TPV para Hostelería",
       },
     ],
   },
@@ -54,6 +54,6 @@ export const SITE_METADATA = {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     images: ["/og-image.jpg"],
-    creator: "@shadcnblocks",
+    creator: "@qamarero",
   },
 };
