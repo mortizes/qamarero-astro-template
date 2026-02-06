@@ -45,10 +45,10 @@ const cards = latest.map((p) => ({
 <DefaultLayout title="Home" description="Metafi">
   <MetafiHero client:load />
   <MetafiLogos />
-  <MetafiFeatures client:load />
+  <MetafiFeatures client:visible />
   <MetafiIntegrations />
-  <MetafiTestimonials client:load />
-  <MetafiFaq client:load />
+  <MetafiTestimonials client:visible />
+  <MetafiFaq client:visible />
   <MetafiFeaturedBlogPosts posts={cards} />
   <MetafiCta />
 </DefaultLayout>
