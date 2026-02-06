@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(findstr:*)",
+      "Bash(\"C:/Users/hola/AppData/Local/Programs/Antigravity/bin/antigravity.cmd\" --install-extension \"C:/Users/hola/Downloads/astro-vscode.vsix\")",
+      "Bash(\"C:/Users/hola/AppData/Local/Programs/Antigravity/bin/antigravity.cmd\" --uninstall-extension ms-edgedevtools.vscode-edge-devtools)",
+      "Bash(timeout:*)"
+    ]
+  }
+}
