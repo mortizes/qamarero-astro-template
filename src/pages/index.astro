@@ -15,12 +15,9 @@ type BlogEntry = CollectionEntry<"blog">;
 
 const entries: BlogEntry[] = await getCollection("blog");
 
-// Helper to convert id to slug (remove .mdx extension)
-const toSlug = (id: string) => id.replace(/\.mdx?$/, "");
-
 const allPosts = entries.map((p) => ({
-  slug: toSlug(p.id),
-  title: (p.data.title || toSlug(p.id).replace(/-/g, " ")).trim(),
+  slug: p.slug,
+  title: (p.data.title || p.slug.replace(/-/g, " ")).trim(),
   description: p.data.description ?? "",
   tagline: p.data.tagline ?? "",
   author: p.data.author ?? "",

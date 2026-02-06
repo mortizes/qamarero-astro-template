@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry,getCollection } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
 
 import FeaturedPost from "@/components/sections/metafi-blog-featured";
 import MetafiBlogGrid from "@/components/sections/metafi-blog-grid";
@@ -9,19 +9,16 @@ type BlogEntry = CollectionEntry<"blog">;
 
 const entries: BlogEntry[] = await getCollection("blog");
 
-// Helper to convert id to slug (remove .mdx extension)
-const toSlug = (id: string) => id.replace(/\.mdx?$/, "");
-
 const entryDate = (e: BlogEntry) =>
   (e.data.date ?? e.data.published ?? new Date(0)) as Date;
 
 const allPosts = entries
   .sort((a, b) => entryDate(b).valueOf() - entryDate(a).valueOf())
   .map((p) => ({
-    slug: toSlug(p.id),
+    slug: p.slug,
     title:
       (typeof p.data.title === "string" ? p.data.title.trim() : "") ||
-      toSlug(p.id).replace(/-/g, " "),
+      p.slug.replace(/-/g, " "),
     description: p.data.description ?? "",
     date: (p.data.date ?? p.data.published)?.toISOString() ?? "",
     author: p.data.author ?? "",
