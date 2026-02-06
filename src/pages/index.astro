@@ -5,7 +5,7 @@ import MetafiCta from "@/components/sections/matafi-cta";
 import MetafiFaq from "@/components/sections/metafi-faq";
 import MetafiFeaturedBlogPosts from "@/components/sections/metafi-featured-blog-posts";
 import MetafiFeatures from "@/components/sections/metafi-features";
-import MetafiHero from "@/components/sections/metafi-hero";
+import MetafiHero from "@/components/sections/MetafiHero.astro";
 import MetafiIntegrations from "@/components/sections/metafi-integrations";
 import MetafiLogos from "@/components/sections/metafi-logos";
 import MetafiTestimonials from "@/components/sections/metafi-testimonials";
@@ -40,7 +40,7 @@ const cards = latest.map((p) => ({
 ---
 
 <DefaultLayout title="Home" description="Metafi">
-  <MetafiHero client:load />
+  <MetafiHero />
   <MetafiLogos />
   <MetafiFeatures client:visible />
   <MetafiIntegrations />
