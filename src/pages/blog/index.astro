@@ -15,10 +15,10 @@ const entryDate = (e: BlogEntry) =>
 const allPosts = entries
   .sort((a, b) => entryDate(b).valueOf() - entryDate(a).valueOf())
   .map((p) => ({
-    slug: p.slug,
+    slug: p.id,
     title:
       (typeof p.data.title === "string" ? p.data.title.trim() : "") ||
-      p.slug.replace(/-/g, " "),
+      p.id.replace(/-/g, " "),
     description: p.data.description ?? "",
     date: (p.data.date ?? p.data.published)?.toISOString() ?? "",
     author: p.data.author ?? "",
@@ -32,7 +32,7 @@ const allPosts = entries
 const featured = allPosts.find((p) => p.featured) ?? null;
 
 const gridPosts = allPosts.map((p) => ({
-  slug: p.slug,
+  slug: p.id,
   title: p.title,
   tagline:
     (typeof p.tagline === "string" && p.tagline.trim()) ||
