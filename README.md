@@ -1,13 +1,13 @@
-# Metafi Astro Template
+# Qamarero Web - Astro
 
-Metafi Astro Template is a premium template built by https://www.shadcnblocks.com
+Marketing website for [Qamarero](https://qamarero.com), built with Astro 5, React 19, and Tailwind CSS 4.
 
-- [Demo](https://metafi-astro-template.vercel.app/)
-- [Documentation](https://docs.shadcnblocks.com/templates/getting-started)
+## Tech Stack
 
-## Screenshot
-
-![metafi Astro Template screenshot](./public/og-image.jpg)
+- **Framework:** Astro 5.x (SSG)
+- **UI:** React 19 + shadcn/ui
+- **Styling:** Tailwind CSS 4
+- **Deploy:** Vercel
 
 ## Getting Started
 
@@ -15,22 +15,40 @@ Metafi Astro Template is a premium template built by https://www.shadcnblocks.co
 # Install dependencies
 npm install
 
-# Run the development server
+# Run development server
 npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-Open [http://localhost:4321](http://localhost:4321) with your browser to see the result.
+## Project Structure
 
-## Tech Stack
+```text
+src/
+├── components/
+│   ├── sections/    # Page sections (Hero, Features, etc.)
+│   ├── ui/          # shadcn/ui components
+│   └── elements/    # Reusable elements
+├── content/         # MDX content (blog, legal)
+├── layouts/         # Page layouts
+├── pages/           # Routes
+└── styles/          # Global styles
+```
 
-- Astro 5.x
-- Tailwind 4
-- shadcn/ui
+## Scripts
 
-## Deploy
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start dev server at localhost:4321 |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
+| `npm run format` | Format with Prettier |
 
-You can deploy this template to your preferred hosting platform that supports Astro applications. Some recommended options include:
+## License
 
-- [Netlify](https://netlify.com)
-- [Vercel](https://vercel.com)
-- [Cloudflare Pages](https://pages.cloudflare.com)
+MIT
