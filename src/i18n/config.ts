@@ -11,7 +11,9 @@ export type Lang = (typeof LANGUAGES)[number];
 export const DEFAULT_LANG: Lang = 'es';
 
 // Base URL for absolute URLs (hreflang, sitemap)
-export const BASE_URL = 'https://qamarero.com';
+// Uses environment variable or falls back to production URL
+// In Astro, import.meta.env.SITE comes from astro.config.mjs "site" property
+export const BASE_URL = import.meta.env.SITE || 'https://qamarero.com';
 
 // Metadata per language
 export const languageConfig: Record<
