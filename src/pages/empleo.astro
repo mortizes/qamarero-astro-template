@@ -1,0 +1,56 @@
+---
+/**
+ * Spanish Careers Page
+ * URL: /es/empleo/
+ */
+import MetafiCareersHero from "@/components/sections/metafi-careers-hero";
+import MetafiMission from "@/components/sections/metafi-mission";
+import MetafiPerks from "@/components/sections/metafi-perks";
+import MetafiJobOpenings from "@/components/sections/metafi-job-openings";
+import MetafiCta from "@/components/sections/matafi-cta";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import { useTranslations } from "@/i18n/ui";
+
+const lang = "es";
+const pageKey = "careers";
+const t = useTranslations(lang);
+
+const perks = [
+  t("common:careers.perks.remote.title") + " - " + t("common:careers.perks.remote.description"),
+  t("common:careers.perks.flexible.title") + " - " + t("common:careers.perks.flexible.description"),
+  t("common:careers.perks.growth.title") + " - " + t("common:careers.perks.growth.description"),
+  t("common:careers.perks.team.title") + " - " + t("common:careers.perks.team.description"),
+];
+---
+
+<DefaultLayout
+  title={t("pages:careers.title")}
+  description={t("pages:careers.description")}
+  lang={lang}
+  pageKey={pageKey}
+>
+  <MetafiCareersHero
+    overline={t("common:careers.hero.overline")}
+    title={t("common:careers.hero.title")}
+    description={t("common:careers.hero.description")}
+    primaryCtaLabel={t("common:careers.hero.cta")}
+    primaryCtaHref="#metafi-job-openings"
+  />
+  <MetafiMission
+    overline={t("common:careers.mission.overline")}
+    primary={t("common:careers.mission.title")}
+    secondary={t("common:careers.mission.description")}
+  />
+  <MetafiPerks
+    overline={t("common:careers.perks.title")}
+    title={t("common:careers.perks.title")}
+    perks={perks}
+  />
+  <MetafiJobOpenings
+    client:visible
+    overline={t("common:careers.jobs.title")}
+    title={t("common:careers.jobs.title")}
+    intro={t("common:careers.jobs.description")}
+  />
+  <MetafiCta />
+</DefaultLayout>

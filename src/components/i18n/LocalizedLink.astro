@@ -1,0 +1,38 @@
+---
+/**
+ * LocalizedLink Component
+ * A link that automatically generates the correct URL for the current language
+ *
+ * @example
+ * <LocalizedLink to="pricing" lang="fr">See pricing</LocalizedLink>
+ * // Renders: <a href="/fr/tarifs">See pricing</a>
+ *
+ * @example
+ * <LocalizedLink to="home" lang="es" class="btn">Home</LocalizedLink>
+ * // Renders: <a href="/" class="btn">Home</a>
+ */
+
+import { getLocalizedUrl } from '../../i18n/utils';
+import type { Lang } from '../../i18n/config';
+import type { PageKey } from '../../i18n/routes';
+
+interface Props {
+  /** The page key to link to (must be defined in routes.ts) */
+  to: PageKey;
+  /** The target language */
+  lang: Lang;
+  /** Optional CSS classes */
+  class?: string;
+  /** Any additional HTML attributes */
+  [key: string]: unknown;
+}
+
+const { to, lang, class: className, ...rest } = Astro.props;
+
+// Generate the localized URL
+const href = getLocalizedUrl(to, lang);
+---
+
+<a href={href} class={className} {...rest}>
+  <slot />
+</a>

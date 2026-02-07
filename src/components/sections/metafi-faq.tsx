@@ -5,7 +5,14 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 type QA = { question: string; answer: string };
 
-const FAQS: QA[] = [
+interface MetafiFaqProps {
+  tagline?: string;
+  title?: string;
+  description?: string;
+  items?: QA[];
+}
+
+const DEFAULT_FAQS: QA[] = [
   {
     question: "How can I send one-time or recurring invoices to customers?",
     answer:
@@ -13,12 +20,12 @@ const FAQS: QA[] = [
   },
   {
     question: "How do I create and send an invoice using Metafi Billing?",
-    answer: `To create an invoice:\n1. Log in to your Metafi Billing dashboard.\n2. Open the “Invoices” section and select **Create New Invoice**.\n3. Add client details, invoice date, and line items.\n4. Review everything, then click **Send** to email the invoice directly to your customer.`,
+    answer: `To create an invoice:\n1. Log in to your Metafi Billing dashboard.\n2. Open the "Invoices" section and select **Create New Invoice**.\n3. Add client details, invoice date, and line items.\n4. Review everything, then click **Send** to email the invoice directly to your customer.`,
   },
   {
     question: "How do I mark an invoice as paid outside of Metafi?",
     answer:
-      "If you receive payment through another channel—such as a bank transfer or cash—you can mark the invoice as paid manually. Open the invoice, choose **Mark as Paid**, select “Out of band,” and record any payment reference or note for accurate reconciliation.",
+      "If you receive payment through another channel, such as a bank transfer or cash, you can mark the invoice as paid manually. Open the invoice, choose Mark as Paid, select Out of band, and record any payment reference or note for accurate reconciliation.",
   },
   {
     question: "How can I calculate my trial conversion rate in Billing?",
@@ -133,29 +140,35 @@ function FaqItem({
   );
 }
 
-export default function MetafiFaq() {
+export default function MetafiFaq({
+  tagline = "FAQ",
+  title = "Frequently Asked Questions",
+  description = "Find answers to the most common questions about our platform.",
+  items = DEFAULT_FAQS,
+}: MetafiFaqProps) {
   const [value, setValue] = useState<string | undefined>(undefined);
   const handleToggle = (id: string) =>
     setValue((curr) => (curr === id ? undefined : id));
+
+  const faqs = items.length > 0 ? items : DEFAULT_FAQS;
 
   return (
     <section id="metafi-faq" className="bg-background px-6 lg:px-0">
       <div className="container px-0 py-16 sm:py-20 md:px-6 lg:py-28">
         <p className="text-tagline mb-4 text-center text-sm font-normal leading-tight sm:text-base">
-          FAQ
+          {tagline}
         </p>
 
         <h2 className="text-foreground mx-auto mb-4 max-w-3xl text-center text-3xl font-medium leading-tight tracking-tight sm:text-4xl md:text-5xl">
-          Frequently Asked Questions
+          {title}
         </h2>
 
         <p className="text-muted-foreground mx-auto max-w-2xl text-center text-base font-normal sm:text-lg">
-          Hendrerit fames metus leo ut orci pretium. Sit vitae montes egestas
-          montes mauris. Auctor vitae neque urna nam nunc pellentesque.
+          {description}
         </p>
 
         <div className="mx-auto mt-10 flex max-w-3xl flex-col gap-4 sm:mt-14">
-          {FAQS.map((qa, i) => {
+          {faqs.map((qa, i) => {
             const id = `item-${i + 1}`;
             const open = value === id;
             return (

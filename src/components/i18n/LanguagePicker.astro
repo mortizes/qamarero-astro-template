@@ -1,0 +1,104 @@
+---
+/**
+ * LanguagePicker - Pure Astro Component
+ *
+ * Features:
+ * - Uses centralized i18n utils (single source of truth)
+ * - Native onchange for reliable navigation
+ * - Saves language preference to localStorage
+ * - No React hydration required
+ * - Uses Astro.currentLocale when available
+ */
+
+import { DEFAULT_LANG, type Lang } from "@/i18n/config";
+import type { PageKey } from "@/i18n/routes";
+import { getLanguageOptions } from "@/i18n/utils";
+
+interface Props {
+  pageKey?: PageKey;
+  lang?: Lang;
+  class?: string;
+}
+
+const {
+  pageKey = "home",
+  // Use Astro.currentLocale if available, fallback to prop or default
+  lang: currentLang = (Astro.currentLocale as Lang) || DEFAULT_LANG,
+  class: className,
+} = Astro.props;
+
+// Generate options using centralized function
+const languageOptions = getLanguageOptions(pageKey, currentLang);
+---
+
+<div class:list={["language-picker relative", className]}>
+  <label for="language-select" class="sr-only">Select language</label>
+  <select
+    id="language-select"
+    name="language"
+    aria-label="Select language"
+    class="appearance-none bg-transparent border border-gray-300 dark:border-gray-700 rounded-md px-2 py-1.5 pr-7 text-sm cursor-pointer hover:border-gray-400 dark:hover:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+  >
+    {languageOptions.map(({ lang, label, flag, targetUrl, exists, isCurrent }) => (
+      <option
+        value={targetUrl}
+        selected={isCurrent}
+        data-lang={lang}
+      >
+        {flag} {label} {!exists && "(home)"}
+      </option>
+    ))}
+  </select>
+
+  <!-- Dropdown arrow -->
+  <svg
+    class="absolute right-1.5 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none text-gray-500 dark:text-gray-400"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M19 9l-7 7-7-7"
+    />
+  </svg>
+</div>
+
+<script>
+  function initLanguagePicker() {
+    const selects = document.querySelectorAll('#language-select');
+    selects.forEach((select) => {
+      // Remove existing listeners to prevent duplicates
+      const newSelect = select.cloneNode(true) as HTMLSelectElement;
+      select.parentNode?.replaceChild(newSelect, select);
+
+      newSelect.addEventListener('change', (e) => {
+        const target = e.target as HTMLSelectElement;
+        const selectedOption = target.options[target.selectedIndex];
+        const lang = selectedOption.dataset.lang;
+        const url = target.value;
+
+        // Save preference
+        if (lang) {
+          try {
+            localStorage.setItem('preferred-language', lang);
+          } catch {
+            // localStorage not available
+          }
+        }
+
+        // Navigate
+        window.location.href = url;
+      });
+    });
+  }
+
+  // Initialize
+  initLanguagePicker();
+
+  // Re-initialize after View Transitions
+  document.addEventListener('astro:page-load', initLanguagePicker);
+</script>

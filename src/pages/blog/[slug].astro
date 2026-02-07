@@ -1,8 +1,15 @@
 ---
+/**
+ * Spanish Blog Post Page
+ * URL: /es/blog/[slug]/
+ */
 import { getCollection } from "astro:content";
 
 import MetafiBlogPost from "@/components/sections/metafi-blog-post";
 import DefaultLayout from "@/layouts/DefaultLayout.astro";
+
+const lang = "es";
+const pageKey = "blog";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -25,7 +32,7 @@ const published = (data.date ?? data.published)?.toISOString?.() ?? "";
 const { Content } = await post.render();
 ---
 
-<DefaultLayout title={title} description={intro}>
+<DefaultLayout title={title} description={intro} lang={lang} pageKey={pageKey}>
   <MetafiBlogPost
     client:visible
     tagline={tagline}

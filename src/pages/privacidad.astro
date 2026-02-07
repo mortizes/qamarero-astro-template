@@ -1,0 +1,30 @@
+---
+/**
+ * Spanish Privacy Page
+ * URL: /es/privacidad/
+ */
+import LegalArticle from "@/components/sections/legal-article";
+import PrivacyContent from "@/content/privacy.mdx";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import { useTranslations } from "@/i18n/ui";
+
+const lang = "es";
+const pageKey = "privacy";
+const t = useTranslations(lang);
+---
+
+<DefaultLayout
+  title={t("pages:privacy.title")}
+  description={t("pages:privacy.description")}
+  lang={lang}
+  pageKey={pageKey}
+>
+  <LegalArticle
+    overline={t("pages:privacy.overline")}
+    title={t("pages:privacy.heading")}
+    subtitle={t("pages:privacy.subtitle")}
+    updatedAt={t("pages:privacy.updatedAt")}
+  >
+    <PrivacyContent />
+  </LegalArticle>
+</DefaultLayout>

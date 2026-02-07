@@ -1,0 +1,30 @@
+---
+/**
+ * French Terms Page
+ * URL: /fr/conditions/
+ */
+import LegalArticle from "@/components/sections/legal-article";
+import TermsContent from "@/content/terms.mdx";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import { useTranslations } from "@/i18n/ui";
+
+const lang = "fr";
+const pageKey = "terms";
+const t = useTranslations(lang);
+---
+
+<DefaultLayout
+  title={t("pages:terms.title")}
+  description={t("pages:terms.description")}
+  lang={lang}
+  pageKey={pageKey}
+>
+  <LegalArticle
+    overline={t("pages:terms.overline")}
+    title={t("pages:terms.heading")}
+    subtitle={t("pages:terms.subtitle")}
+    updatedAt={t("pages:terms.updatedAt")}
+  >
+    <TermsContent />
+  </LegalArticle>
+</DefaultLayout>

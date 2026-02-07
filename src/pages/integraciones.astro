@@ -1,0 +1,26 @@
+---
+/**
+ * Spanish Integrations Page
+ * URL: /es/integraciones/
+ */
+import MetafiCta from "@/components/sections/matafi-cta";
+import MetafiAllIntegrations from "@/components/sections/metafi-all-integrations";
+import MetafiIntegrationsHero from "@/components/sections/metafi-integrations-hero";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import { useTranslations } from "@/i18n/ui";
+
+const lang = "es";
+const pageKey = "integrations";
+const t = useTranslations(lang);
+---
+
+<DefaultLayout
+  title={t("pages:integrations.title")}
+  description={t("pages:integrations.description")}
+  lang={lang}
+  pageKey={pageKey}
+>
+  <MetafiIntegrationsHero />
+  <MetafiAllIntegrations />
+  <MetafiCta />
+</DefaultLayout>

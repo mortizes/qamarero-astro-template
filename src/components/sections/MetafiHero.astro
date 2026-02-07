@@ -1,6 +1,24 @@
 ---
 import { Button } from "@/components/ui/button";
 import GridBackground from "../ui/GridBackground.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  primaryCta?: string;
+  primaryCtaHref?: string;
+  secondaryCta?: string;
+  secondaryCtaHref?: string;
+}
+
+const {
+  title = "Simplifying Payments for Growing Business",
+  description = "Streamlining transactions for expanding enterprises. Our solutions simplify payment processes, empowering businesses to focus on growth and innovation.",
+  primaryCta = "Get Started",
+  primaryCtaHref = "/pricing",
+  secondaryCta = "Contact Us",
+  secondaryCtaHref = "/contact",
+} = Astro.props;
 ---
 
 <section
@@ -25,30 +43,28 @@ import GridBackground from "../ui/GridBackground.astro";
   <div class="container relative px-0 md:px-6">
     <div class="mx-auto grid max-w-4xl gap-6 py-14 text-center sm:py-16 md:gap-8 md:pb-20 md:pt-24">
       <h1 class="text-foreground text-balance text-4xl font-medium leading-tight tracking-tight sm:text-5xl md:text-[68px]">
-        Simplifying Payments for Growing Business
+        {title}
       </h1>
 
       <p class="text-muted-foreground md:text-md mx-auto max-w-2xl text-base sm:text-lg">
-        Streamlining transactions for expanding enterprises. Our solutions
-        simplify payment processes, empowering businesses to focus on growth
-        and innovation.
+        {description}
       </p>
 
       <div class="mt-2 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-4">
         <Button
-          aria-label="Get started"
+          aria-label={primaryCta}
           variant="default"
           className="w-full sm:w-auto"
         >
-          <a href="/pricing">Get Started</a>
+          <a href={primaryCtaHref}>{primaryCta}</a>
         </Button>
 
         <Button
-          aria-label="Contact us"
+          aria-label={secondaryCta}
           variant="outline"
           className="w-full sm:w-auto"
         >
-          <a href="/contact">Contact Us</a>
+          <a href={secondaryCtaHref}>{secondaryCta}</a>
         </Button>
       </div>
     </div>

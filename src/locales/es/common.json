@@ -1,0 +1,275 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "features": "Funcionalidades",
+    "pricing": "Precios",
+    "integrations": "Integraciones",
+    "about": "Nosotros",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "login": "Iniciar sesión",
+    "getStarted": "Empezar",
+    "demo": "Ver demo"
+  },
+  "footer": {
+    "product": "Producto",
+    "company": "Empresa",
+    "legal": "Legal",
+    "copyright": "Qamarero. Todos los derechos reservados.",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "cookies": "Cookies",
+    "careers": "Empleo",
+    "signup": "Registrarse"
+  },
+  "cta": {
+    "primary": "Solicitar demo",
+    "secondary": "Ver funcionalidades",
+    "contact": "Contactar",
+    "getStarted": "Empezar ahora",
+    "contactSales": "Contactar ventas",
+    "title": "Simplificando pagos para negocios en crecimiento",
+    "description": "Únete a más de 1.500 restaurantes que ya crecen con Qamarero"
+  },
+  "hero": {
+    "tagline": "Software TPV para Hostelería",
+    "title": "Todo lo que necesitas para gestionar tu restaurante",
+    "description": "TPV, comandero digital, carta QR, reservas online y delivery. Todo en una sola plataforma por 99€/mes.",
+    "primaryCta": "Solicitar demo",
+    "secondaryCta": "Ver funcionalidades"
+  },
+  "features": {
+    "tagline": "Funcionalidades",
+    "title": "Todo incluido en un solo plan",
+    "description": "Sin sorpresas, sin comisiones ocultas. Todas las herramientas que necesitas para digitalizar tu restaurante.",
+    "tpv": {
+      "title": "TPV Táctil",
+      "description": "Interfaz intuitiva diseñada para la velocidad del servicio"
+    },
+    "orders": {
+      "title": "Comandero Digital",
+      "description": "Toma comandas desde tablet o móvil, directo a cocina"
+    },
+    "qr": {
+      "title": "Carta QR",
+      "description": "Menú digital con pedidos y pagos desde la mesa"
+    },
+    "reservations": {
+      "title": "Reservas Online",
+      "description": "Sistema de reservas integrado con tu web y redes"
+    },
+    "delivery": {
+      "title": "Delivery y Take Away",
+      "description": "Gestiona pedidos a domicilio y para llevar"
+    },
+    "kds": {
+      "title": "KDS Cocina",
+      "description": "Pantalla de cocina para gestionar comandas"
+    }
+  },
+  "pricing": {
+    "tagline": "Precios",
+    "title": "Simple y transparente",
+    "description": "Un solo plan con todo incluido. Sin sorpresas.",
+    "monthly": "Mensual",
+    "yearly": "Anual",
+    "save": "Ahorra 30%",
+    "perMonth": "/mes",
+    "billedYearly": "Facturado anualmente",
+    "standard": {
+      "name": "Estándar",
+      "price": "99",
+      "description": "Todo lo que necesitas para gestionar tu restaurante",
+      "features": [
+        "TPV táctil ilimitado",
+        "Comandero digital",
+        "Carta QR con pedidos",
+        "Reservas online",
+        "Delivery integrado",
+        "Soporte 24/7"
+      ]
+    },
+    "custom": {
+      "name": "Personalizado",
+      "price": "Hablemos",
+      "description": "Para cadenas y grandes establecimientos",
+      "features": [
+        "Todo lo del plan Estándar",
+        "API e integraciones avanzadas",
+        "Gestor de cuenta dedicado",
+        "Formación personalizada",
+        "SLA garantizado"
+      ]
+    }
+  },
+  "faq": {
+    "tagline": "Preguntas frecuentes",
+    "title": "¿Tienes dudas?",
+    "description": "Encuentra respuestas a las preguntas más comunes sobre Qamarero",
+    "items": [
+      {
+        "question": "¿Qué incluye el precio de 99€/mes?",
+        "answer": "El plan incluye todas las funcionalidades: TPV, comandero, carta QR, reservas, delivery, KDS de cocina, informes y soporte 24/7. Sin comisiones adicionales ni costes ocultos."
+      },
+      {
+        "question": "¿Necesito comprar hardware especial?",
+        "answer": "No. Qamarero funciona en cualquier tablet, móvil u ordenador. Puedes usar el equipo que ya tienes o te recomendamos opciones económicas."
+      },
+      {
+        "question": "¿Cómo funciona el soporte técnico?",
+        "answer": "Ofrecemos soporte 24/7 por chat, email y teléfono. Nuestro equipo está formado por expertos en hostelería que entienden tu negocio."
+      },
+      {
+        "question": "¿Puedo cancelar cuando quiera?",
+        "answer": "Sí, sin compromiso de permanencia. Puedes cancelar tu suscripción en cualquier momento desde tu panel de control."
+      }
+    ]
+  },
+  "testimonials": {
+    "tagline": "Testimonios",
+    "title": "Lo que dicen nuestros clientes",
+    "description": "Más de 1.500 restaurantes confían en Qamarero"
+  },
+  "integrations": {
+    "tagline": "Integraciones",
+    "title": "Conecta con tus herramientas favoritas",
+    "description": "Qamarero se integra con las principales plataformas de delivery, contabilidad y marketing"
+  },
+  "languages": {
+    "selectLanguage": "Seleccionar idioma",
+    "es": "Español",
+    "fr": "Français",
+    "en": "English",
+    "it": "Italiano"
+  },
+  "404": {
+    "title": "Página no encontrada",
+    "description": "Lo sentimos, la página que buscas no existe.",
+    "backHome": "Volver al inicio"
+  },
+  "login": {
+    "title": "Inicia sesión en tu cuenta",
+    "subtitle": "¡Bienvenido de nuevo! Introduce tus datos",
+    "email": "Email",
+    "emailPlaceholder": "tu@email.com",
+    "password": "Contraseña",
+    "passwordPlaceholder": "Contraseña",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "signIn": "Iniciar sesión",
+    "orSignInWith": "O inicia sesión con",
+    "signInGoogle": "Iniciar sesión con Google",
+    "signInFacebook": "Iniciar sesión con Facebook",
+    "noAccount": "¿No tienes cuenta?",
+    "signUp": "Regístrate",
+    "showPassword": "Mostrar contraseña",
+    "hidePassword": "Ocultar contraseña"
+  },
+  "signup": {
+    "title": "Crea tu cuenta",
+    "subtitle": "Empieza gratis. Sin tarjeta de crédito.",
+    "fullName": "Nombre completo",
+    "fullNamePlaceholder": "Tu nombre",
+    "email": "Email",
+    "emailPlaceholder": "tu@email.com",
+    "password": "Contraseña",
+    "passwordPlaceholder": "Mínimo 8 caracteres",
+    "createAccount": "Crear cuenta",
+    "orSignUpWith": "O regístrate con",
+    "signUpGoogle": "Registrarse con Google",
+    "signUpFacebook": "Registrarse con Facebook",
+    "haveAccount": "¿Ya tienes cuenta?",
+    "signIn": "Inicia sesión",
+    "terms": "Al registrarte, aceptas nuestros",
+    "termsLink": "Términos de servicio",
+    "and": "y",
+    "privacyLink": "Política de privacidad"
+  },
+  "careers": {
+    "hero": {
+      "overline": "Empleo",
+      "title": "Únete al futuro de la hostelería",
+      "description": "Estamos construyendo el software que transforma la gestión de restaurantes. ¿Te unes?",
+      "cta": "Ver ofertas de empleo"
+    },
+    "mission": {
+      "overline": "Nuestra misión",
+      "title": "Simplificar la vida de los hosteleros",
+      "description": "Creemos que la tecnología debe hacer la vida más fácil, no más complicada. Por eso creamos herramientas intuitivas que permiten a los restaurantes centrarse en lo que mejor saben hacer: crear experiencias increíbles para sus clientes."
+    },
+    "perks": {
+      "title": "¿Por qué trabajar con nosotros?",
+      "remote": {
+        "title": "Trabajo remoto",
+        "description": "Trabaja desde donde quieras"
+      },
+      "flexible": {
+        "title": "Horario flexible",
+        "description": "Organiza tu tiempo como prefieras"
+      },
+      "growth": {
+        "title": "Crecimiento",
+        "description": "Formación continua y desarrollo profesional"
+      },
+      "team": {
+        "title": "Gran equipo",
+        "description": "Colabora con profesionales apasionados"
+      }
+    },
+    "jobs": {
+      "title": "Ofertas de empleo",
+      "description": "Encuentra tu próximo reto profesional",
+      "location": "Ubicación",
+      "type": "Tipo",
+      "remote": "Remoto",
+      "fullTime": "Tiempo completo",
+      "partTime": "Media jornada",
+      "apply": "Aplicar",
+      "noJobs": "No hay ofertas disponibles actualmente"
+    }
+  },
+  "about": {
+    "hero": {
+      "overline": "Nosotros",
+      "title": "La historia detrás de Qamarero",
+      "description": "Somos un equipo apasionado por la tecnología y la hostelería, comprometidos con hacer más fácil la vida de los restauradores."
+    },
+    "stats": {
+      "restaurants": "Restaurantes",
+      "countries": "Países",
+      "transactions": "Transacciones/mes",
+      "support": "Soporte 24/7"
+    },
+    "team": {
+      "title": "Nuestro equipo",
+      "description": "Profesionales apasionados trabajando para ti"
+    }
+  },
+  "contact": {
+    "hero": {
+      "overline": "Contacto",
+      "title": "¿Hablamos?",
+      "description": "Estamos aquí para ayudarte. Escríbenos y te responderemos en menos de 24 horas."
+    },
+    "form": {
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre",
+      "email": "Email",
+      "emailPlaceholder": "tu@email.com",
+      "phone": "Teléfono",
+      "phonePlaceholder": "Tu teléfono",
+      "restaurant": "Nombre del restaurante",
+      "restaurantPlaceholder": "Tu restaurante",
+      "message": "Mensaje",
+      "messagePlaceholder": "¿En qué podemos ayudarte?",
+      "submit": "Enviar mensaje",
+      "success": "¡Mensaje enviado! Te contactaremos pronto.",
+      "error": "Error al enviar. Inténtalo de nuevo."
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Teléfono",
+      "address": "Dirección",
+      "hours": "Horario de atención"
+    }
+  }
+}

@@ -10,7 +10,14 @@ type Feature = {
   href?: string;
 };
 
-const FEATURES: Feature[] = [
+interface MetafiFeaturesProps {
+  tagline?: string;
+  title?: string;
+  description?: string;
+  features?: Feature[];
+}
+
+const DEFAULT_FEATURES: Feature[] = [
   {
     title: "Checkout",
     description:
@@ -77,25 +84,27 @@ function FeatureCard({ feature }: { feature: Feature }) {
   );
 }
 
-const MetafiFeatures = () => {
-  const [f1, f2, f3, f4] = FEATURES;
+const MetafiFeatures = ({
+  tagline = "Features",
+  title = "Everything You Need to Run & Grow Your Business",
+  description = "All the tools and resources necessary for managing and expanding your business, conveniently accessible in one place. Take control of your journey to success with our comprehensive solutions.",
+  features = DEFAULT_FEATURES,
+}: MetafiFeaturesProps) => {
+  const [f1, f2, f3, f4] = features.length >= 4 ? features : DEFAULT_FEATURES;
 
   return (
     <section id="metafi-features" className="bg-background px-6 lg:px-0">
       <div className="container px-0 py-16 sm:py-20 md:px-6 md:py-28">
         <p className="text-tagline mb-4 text-center text-sm sm:text-base">
-          Features
+          {tagline}
         </p>
 
         <h2 className="text-foreground mx-auto max-w-3xl text-balance text-center text-3xl font-medium leading-tight tracking-tight sm:text-4xl md:text-5xl">
-          Everything You Need to Run & <br className="hidden sm:block" />
-          Grow Your Business
+          {title}
         </h2>
 
         <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-center text-base sm:text-lg">
-          All the tools and resources necessary for managing and expanding your
-          business, conveniently accessible in one place. Take control of your
-          journey to success with our comprehensive solutions.
+          {description}
         </p>
 
         <div className="mt-12 flex flex-col gap-6 md:mt-14 md:gap-8 lg:flex-row">

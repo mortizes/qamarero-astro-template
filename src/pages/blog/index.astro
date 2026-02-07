@@ -1,9 +1,18 @@
 ---
+/**
+ * Spanish Blog Index Page
+ * URL: /es/blog/
+ */
 import { type CollectionEntry, getCollection } from "astro:content";
 
 import FeaturedPost from "@/components/sections/metafi-blog-featured";
 import MetafiBlogGrid from "@/components/sections/metafi-blog-grid";
 import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import { useTranslations } from "@/i18n/ui";
+
+const lang = "es";
+const pageKey = "blog";
+const t = useTranslations(lang);
 
 type BlogEntry = CollectionEntry<"blog">;
 
@@ -40,14 +49,19 @@ const gridPosts = allPosts.map((p) => ({
       ? p.tags[0].trim()
       : "") ||
     "General",
-  intro: p.description, // use description as intro
+  intro: p.description,
   author: p.author ?? "",
   date: p.date ?? "",
   coverImage: p.coverImage ?? "",
 }));
 ---
 
-<DefaultLayout title="Blog" description="Latest posts">
+<DefaultLayout
+  title={t("pages:blog.title")}
+  description={t("pages:blog.description")}
+  lang={lang}
+  pageKey={pageKey}
+>
   {featured && <FeaturedPost post={featured} />}
   <MetafiBlogGrid posts={gridPosts} client:visible />
 </DefaultLayout>

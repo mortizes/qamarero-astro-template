@@ -1,0 +1,44 @@
+---
+/**
+ * Italian Signup Page
+ * URL: /it/registrazione/
+ */
+import MetafiSignup from "@/components/sections/metafi-signup";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import { useTranslations } from "@/i18n/ui";
+import { getLocalizedUrl } from "@/i18n/utils";
+
+const lang = "it";
+const pageKey = "signup";
+const t = useTranslations(lang);
+---
+
+<DefaultLayout
+  title={t("pages:signup.title")}
+  description={t("pages:signup.description")}
+  lang={lang}
+  pageKey={pageKey}
+>
+  <MetafiSignup
+    client:load
+    title={t("common:signup.title")}
+    subtitle={t("common:signup.subtitle")}
+    fullNameLabel={t("common:signup.fullName")}
+    fullNamePlaceholder={t("common:signup.fullNamePlaceholder")}
+    emailLabel={t("common:signup.email")}
+    emailPlaceholder={t("common:signup.emailPlaceholder")}
+    passwordLabel={t("common:signup.password")}
+    passwordPlaceholder={t("common:signup.passwordPlaceholder")}
+    createAccountButton={t("common:signup.createAccount")}
+    orSignUpWith={t("common:signup.orSignUpWith")}
+    signUpGoogle={t("common:signup.signUpGoogle")}
+    signUpFacebook={t("common:signup.signUpFacebook")}
+    haveAccount={t("common:signup.haveAccount")}
+    signInLink={t("common:signup.signIn")}
+    signInUrl={getLocalizedUrl("login", lang)}
+    termsText={t("common:signup.terms")}
+    termsLink={t("common:signup.termsLink")}
+    andText={t("common:signup.and")}
+    privacyLink={t("common:signup.privacyLink")}
+  />
+</DefaultLayout>

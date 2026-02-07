@@ -1,0 +1,275 @@
+{
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "pricing": "Pricing",
+    "integrations": "Integrations",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "login": "Login",
+    "getStarted": "Get Started",
+    "demo": "See demo"
+  },
+  "footer": {
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "copyright": "Qamarero. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies",
+    "careers": "Careers",
+    "signup": "Sign Up"
+  },
+  "cta": {
+    "primary": "Request demo",
+    "secondary": "See features",
+    "contact": "Contact us",
+    "getStarted": "Get Started",
+    "contactSales": "Contact Sales",
+    "title": "Simplifying Payments for Growing Businesses",
+    "description": "Join over 1,500 restaurants already growing with Qamarero"
+  },
+  "hero": {
+    "tagline": "Restaurant POS Software",
+    "title": "Everything you need to manage your restaurant",
+    "description": "POS, digital ordering, QR menu, online reservations and delivery. All in one platform for €99/month.",
+    "primaryCta": "Request demo",
+    "secondaryCta": "See features"
+  },
+  "features": {
+    "tagline": "Features",
+    "title": "Everything included in one plan",
+    "description": "No surprises, no hidden fees. All the tools you need to digitize your restaurant.",
+    "tpv": {
+      "title": "Touch POS",
+      "description": "Intuitive interface designed for service speed"
+    },
+    "orders": {
+      "title": "Digital Ordering",
+      "description": "Take orders from tablet or mobile, straight to the kitchen"
+    },
+    "qr": {
+      "title": "QR Menu",
+      "description": "Digital menu with ordering and payments from the table"
+    },
+    "reservations": {
+      "title": "Online Reservations",
+      "description": "Reservation system integrated with your website and social media"
+    },
+    "delivery": {
+      "title": "Delivery & Takeaway",
+      "description": "Manage home delivery and takeaway orders"
+    },
+    "kds": {
+      "title": "Kitchen Display",
+      "description": "Kitchen screen for managing orders"
+    }
+  },
+  "pricing": {
+    "tagline": "Pricing",
+    "title": "Simple and transparent",
+    "description": "One plan with everything included. No surprises.",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "save": "Save 30%",
+    "perMonth": "/month",
+    "billedYearly": "Billed annually",
+    "standard": {
+      "name": "Standard",
+      "price": "99",
+      "description": "Everything you need to manage your restaurant",
+      "features": [
+        "Unlimited touch POS",
+        "Digital ordering",
+        "QR menu with ordering",
+        "Online reservations",
+        "Integrated delivery",
+        "24/7 support"
+      ]
+    },
+    "custom": {
+      "name": "Custom",
+      "price": "Let's talk",
+      "description": "For chains and large establishments",
+      "features": [
+        "Everything in Standard",
+        "Advanced API & integrations",
+        "Dedicated account manager",
+        "Custom training",
+        "Guaranteed SLA"
+      ]
+    }
+  },
+  "faq": {
+    "tagline": "FAQ",
+    "title": "Got questions?",
+    "description": "Find answers to the most common questions about Qamarero",
+    "items": [
+      {
+        "question": "What's included in the €99/month price?",
+        "answer": "The plan includes all features: POS, ordering, QR menu, reservations, delivery, kitchen display, reports and 24/7 support. No additional fees or hidden costs."
+      },
+      {
+        "question": "Do I need to buy special hardware?",
+        "answer": "No. Qamarero works on any tablet, mobile or computer. You can use the equipment you already have or we'll recommend affordable options."
+      },
+      {
+        "question": "How does technical support work?",
+        "answer": "We offer 24/7 support via chat, email and phone. Our team consists of hospitality experts who understand your business."
+      },
+      {
+        "question": "Can I cancel anytime?",
+        "answer": "Yes, no commitment. You can cancel your subscription at any time from your dashboard."
+      }
+    ]
+  },
+  "testimonials": {
+    "tagline": "Testimonials",
+    "title": "What our customers say",
+    "description": "Over 1,500 restaurants trust Qamarero"
+  },
+  "integrations": {
+    "tagline": "Integrations",
+    "title": "Connect your favorite tools",
+    "description": "Qamarero integrates with leading delivery, accounting and marketing platforms"
+  },
+  "languages": {
+    "selectLanguage": "Select language",
+    "es": "Español",
+    "fr": "Français",
+    "en": "English",
+    "it": "Italiano"
+  },
+  "404": {
+    "title": "Page not found",
+    "description": "Sorry, the page you are looking for does not exist.",
+    "backHome": "Back to home"
+  },
+  "login": {
+    "title": "Sign in to your account",
+    "subtitle": "Welcome back! Please enter your details",
+    "email": "Email",
+    "emailPlaceholder": "you@email.com",
+    "password": "Password",
+    "passwordPlaceholder": "Password",
+    "forgotPassword": "Forgot password?",
+    "signIn": "Sign In",
+    "orSignInWith": "Or sign in with",
+    "signInGoogle": "Sign in with Google",
+    "signInFacebook": "Sign in with Facebook",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign Up",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password"
+  },
+  "signup": {
+    "title": "Create your account",
+    "subtitle": "Start free. No credit card required.",
+    "fullName": "Full name",
+    "fullNamePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "you@email.com",
+    "password": "Password",
+    "passwordPlaceholder": "Minimum 8 characters",
+    "createAccount": "Create account",
+    "orSignUpWith": "Or sign up with",
+    "signUpGoogle": "Sign up with Google",
+    "signUpFacebook": "Sign up with Facebook",
+    "haveAccount": "Already have an account?",
+    "signIn": "Sign in",
+    "terms": "By signing up, you agree to our",
+    "termsLink": "Terms of Service",
+    "and": "and",
+    "privacyLink": "Privacy Policy"
+  },
+  "careers": {
+    "hero": {
+      "overline": "Careers",
+      "title": "Join the future of hospitality",
+      "description": "We're building the software that transforms restaurant management. Want to join us?",
+      "cta": "See job openings"
+    },
+    "mission": {
+      "overline": "Our mission",
+      "title": "Simplify life for restaurateurs",
+      "description": "We believe technology should make life easier, not more complicated. That's why we create intuitive tools that allow restaurants to focus on what they do best: creating incredible experiences for their customers."
+    },
+    "perks": {
+      "title": "Why work with us?",
+      "remote": {
+        "title": "Remote work",
+        "description": "Work from wherever you want"
+      },
+      "flexible": {
+        "title": "Flexible hours",
+        "description": "Organize your time as you prefer"
+      },
+      "growth": {
+        "title": "Growth",
+        "description": "Continuous training and professional development"
+      },
+      "team": {
+        "title": "Great team",
+        "description": "Collaborate with passionate professionals"
+      }
+    },
+    "jobs": {
+      "title": "Job openings",
+      "description": "Find your next professional challenge",
+      "location": "Location",
+      "type": "Type",
+      "remote": "Remote",
+      "fullTime": "Full time",
+      "partTime": "Part time",
+      "apply": "Apply",
+      "noJobs": "No openings available at this time"
+    }
+  },
+  "about": {
+    "hero": {
+      "overline": "About",
+      "title": "The story behind Qamarero",
+      "description": "We are a team passionate about technology and hospitality, committed to making life easier for restaurateurs."
+    },
+    "stats": {
+      "restaurants": "Restaurants",
+      "countries": "Countries",
+      "transactions": "Transactions/month",
+      "support": "24/7 Support"
+    },
+    "team": {
+      "title": "Our team",
+      "description": "Passionate professionals working for you"
+    }
+  },
+  "contact": {
+    "hero": {
+      "overline": "Contact",
+      "title": "Let's talk?",
+      "description": "We're here to help. Write to us and we'll respond within 24 hours."
+    },
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "you@email.com",
+      "phone": "Phone",
+      "phonePlaceholder": "Your phone",
+      "restaurant": "Restaurant name",
+      "restaurantPlaceholder": "Your restaurant",
+      "message": "Message",
+      "messagePlaceholder": "How can we help you?",
+      "submit": "Send message",
+      "success": "Message sent! We'll contact you soon.",
+      "error": "Error sending. Please try again."
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "hours": "Business hours"
+    }
+  }
+}

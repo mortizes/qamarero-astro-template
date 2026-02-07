@@ -1,0 +1,42 @@
+---
+/**
+ * HreflangTags Component
+ * Generates hreflang link tags for SEO
+ *
+ * These tags tell search engines about alternate language versions of a page.
+ * Only includes languages where the page actually exists.
+ *
+ * @example
+ * <HreflangTags pageKey="pricing" />
+ *
+ * Generates:
+ * <link rel="alternate" hreflang="es" href="https://qamarero.com/pricing" />
+ * <link rel="alternate" hreflang="fr" href="https://qamarero.com/fr/tarifs" />
+ * <link rel="alternate" hreflang="en" href="https://qamarero.com/en/pricing" />
+ * <link rel="alternate" hreflang="x-default" href="https://qamarero.com/pricing" />
+ */
+
+import { getAlternateUrls, getAbsoluteUrl } from '../../i18n/utils';
+import { DEFAULT_LANG } from '../../i18n/config';
+import type { PageKey } from '../../i18n/routes';
+
+interface Props {
+  pageKey: PageKey;
+}
+
+const { pageKey } = Astro.props;
+
+// Get all alternate URLs for this page (only languages where page exists)
+const alternates = getAlternateUrls(pageKey);
+
+// x-default points to the default language version
+const xDefaultUrl = getAbsoluteUrl(pageKey, DEFAULT_LANG);
+---
+
+{/* hreflang for each language where the page exists */}
+{alternates.map(({ lang, url }) => (
+  <link rel="alternate" hreflang={lang} href={url} />
+))}
+
+{/* x-default for users without language preference */}
+<link rel="alternate" hreflang="x-default" href={xDefaultUrl} />

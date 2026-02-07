@@ -15,9 +15,38 @@ function usePathname() {
 
 const HEADER_HEIGHT = 80; // h-20
 
-const Navbar = () => {
+interface NavItem {
+  label: string;
+  href: string;
+}
+
+interface NavbarProps {
+  navItems?: NavItem[];
+  loginText?: string;
+  ctaText?: string;
+  loginHref?: string;
+  ctaHref?: string;
+}
+
+const Navbar = ({
+  navItems,
+  loginText = "Login",
+  ctaText = "Get Started",
+  loginHref = "/login",
+  ctaHref = "/pricing",
+}: NavbarProps) => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Default nav items (English) if none provided
+  const ITEMS: NavItem[] = navItems || [
+    { label: "Features", href: "/features" },
+    { label: "Integrations", href: "/integrations" },
+    { label: "About Us", href: "/about" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "Blog", href: "/blog" },
+    { label: "Contact", href: "/contact" },
+  ];
 
   useEffect(() => {
     document.body.classList.toggle("overflow-hidden", isMenuOpen);
@@ -67,19 +96,19 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", onResize);
   }, [isMenuOpen, panelHeight]);
 
-  const ITEMS = [
-    { label: "Features", href: "/features" },
-    { label: "Integrations", href: "/integrations" },
-    { label: "About Us", href: "/about" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "Blog", href: "/blog" },
-    { label: "Contact", href: "/contact" },
-  ];
+  // Determine home link based on current path language prefix
+  const homeHref = pathname.startsWith("/fr/")
+    ? "/fr/"
+    : pathname.startsWith("/en/")
+      ? "/en/"
+      : pathname.startsWith("/it/")
+        ? "/it/"
+        : "/";
 
   return (
     <header className="bg-background border-border relative z-50 h-20 border-b px-2.5 lg:px-0">
       <div className="container flex h-20 items-center justify-between lg:grid lg:grid-cols-[auto_1fr_auto]">
-        <a href="/" className="flex items-center gap-2">
+        <a href={homeHref} className="flex items-center gap-2">
           {/* Logo negro para light mode */}
           <img
             src="/qamarero-logo-negro.svg"
@@ -114,16 +143,21 @@ const Navbar = () => {
         </nav>
 
         <div className="flex items-center gap-2.5">
-          <a href="/login" className={cn("hidden sm:block lg:block")}>
+          <a href={loginHref} className={cn("hidden sm:block lg:block")}>
             <Button size="sm" variant="outline">
-              Login
+              {loginText}
             </Button>
           </a>
-          <a href="/pricing" className={cn("hidden sm:block lg:block")}>
+          <a href={ctaHref} className={cn("hidden sm:block lg:block")}>
             <Button size="sm" variant="default">
-              Get Started
+              {ctaText}
             </Button>
           </a>
+
+          {/* LanguagePicker is rendered by Astro in DefaultLayout for reliability */}
+          <div id="language-picker-desktop" className="hidden lg:block">
+            {/* Astro LanguagePicker will be positioned here */}
+          </div>
 
           <div className="lg:block">
             <ThemeToggle />
@@ -212,14 +246,18 @@ const Navbar = () => {
                   </div>
 
                   <div className="mb-6 mt-4 flex flex-col gap-3">
-                    <a href="/login" onClick={() => setIsMenuOpen(false)}>
+                    {/* LanguagePicker mobile placeholder - rendered by Astro */}
+                    <div id="language-picker-mobile" className="py-2">
+                      {/* Astro LanguagePicker will be positioned here */}
+                    </div>
+                    <a href={loginHref} onClick={() => setIsMenuOpen(false)}>
                       <Button className="w-full" size="sm" variant="outline">
-                        Login
+                        {loginText}
                       </Button>
                     </a>
-                    <a href="/pricing" onClick={() => setIsMenuOpen(false)}>
+                    <a href={ctaHref} onClick={() => setIsMenuOpen(false)}>
                       <Button className="w-full" size="sm" variant="default">
-                        Get Started
+                        {ctaText}
                       </Button>
                     </a>
                   </div>

@@ -1,0 +1,30 @@
+---
+/**
+ * English About Page
+ * URL: /en/about/
+ */
+import MetafiCta from "@/components/sections/matafi-cta";
+import MetafiAboutHero from "@/components/sections/metafi-about-hero";
+import MetafiPartnerLogos from "@/components/sections/metafi-partner-logos";
+import MetafiTeam from "@/components/sections/metafi-team";
+import MetafiThroughYears from "@/components/sections/metafi-trough-years";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import { useTranslations } from "@/i18n/ui";
+
+const lang = "en";
+const pageKey = "about";
+const t = useTranslations(lang);
+---
+
+<DefaultLayout
+  title={t("pages:about.title")}
+  description={t("pages:about.description")}
+  lang={lang}
+  pageKey={pageKey}
+>
+  <MetafiAboutHero />
+  <MetafiThroughYears />
+  <MetafiTeam />
+  <MetafiPartnerLogos />
+  <MetafiCta />
+</DefaultLayout>

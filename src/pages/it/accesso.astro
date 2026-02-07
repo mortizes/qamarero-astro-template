@@ -1,0 +1,41 @@
+---
+/**
+ * Italian Login Page
+ * URL: /it/accesso/
+ */
+import MetafiLogin from "@/components/sections/metafi-login";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import { useTranslations } from "@/i18n/ui";
+import { getLocalizedUrl } from "@/i18n/utils";
+
+const lang = "it";
+const pageKey = "login";
+const t = useTranslations(lang);
+---
+
+<DefaultLayout
+  title={t("pages:login.title")}
+  description={t("pages:login.description")}
+  lang={lang}
+  pageKey={pageKey}
+>
+  <MetafiLogin
+    client:load
+    title={t("common:login.title")}
+    subtitle={t("common:login.subtitle")}
+    emailLabel={t("common:login.email")}
+    emailPlaceholder={t("common:login.emailPlaceholder")}
+    passwordLabel={t("common:login.password")}
+    passwordPlaceholder={t("common:login.passwordPlaceholder")}
+    forgotPassword={t("common:login.forgotPassword")}
+    signInButton={t("common:login.signIn")}
+    orSignInWith={t("common:login.orSignInWith")}
+    signInGoogle={t("common:login.signInGoogle")}
+    signInFacebook={t("common:login.signInFacebook")}
+    noAccount={t("common:login.noAccount")}
+    signUpLink={t("common:login.signUp")}
+    signUpUrl={getLocalizedUrl("signup", lang)}
+    showPasswordLabel={t("common:login.showPassword")}
+    hidePasswordLabel={t("common:login.hidePassword")}
+  />
+</DefaultLayout>

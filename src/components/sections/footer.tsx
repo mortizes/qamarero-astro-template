@@ -1,6 +1,14 @@
 import { Facebook, Linkedin, Twitter } from "lucide-react";
 
-const columns = [
+type FooterLink = { name: string; href: string };
+type FooterColumn = { title: string; links: FooterLink[] };
+
+interface FooterProps {
+  columns?: FooterColumn[];
+  copyright?: string;
+}
+
+const DEFAULT_COLUMNS: FooterColumn[] = [
   {
     title: "Product",
     links: [
@@ -36,7 +44,10 @@ const socials = [
   { Icon: Facebook, href: "https://facebook.com" },
 ];
 
-export const Footer = () => {
+export const Footer = ({
+  columns = DEFAULT_COLUMNS,
+  copyright = "Qamarero. All rights reserved",
+}: FooterProps) => {
   return (
     <footer className="force-light-vars bg-primary text-primary-foreground px-2.5 lg:px-0">
       <div className="container py-12 md:py-16">
@@ -56,7 +67,7 @@ export const Footer = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-10 sm:grid-cols-4 md:flex md:w-[525px] md:items-start md:justify-between md:gap-0">
-            {columns.map((col) => (
+            {(columns || DEFAULT_COLUMNS).map((col) => (
               <div key={col.title} className="min-w-0">
                 <h3 className="text-muted-foreground mb-4 text-sm font-medium leading-tight">
                   {col.title}
@@ -82,7 +93,7 @@ export const Footer = () => {
 
         <div className="mt-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <p className="text-muted-foreground text-sm font-normal">
-            © {new Date().getFullYear()} Qamarero. All rights reserved
+            © {new Date().getFullYear()} {copyright}
           </p>
 
           <div className="flex items-center gap-4">

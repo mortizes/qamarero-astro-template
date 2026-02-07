@@ -1,0 +1,22 @@
+---
+/**
+ * Spanish Contact Page
+ * URL: /es/contacto/
+ */
+import MetafiContact from "@/components/sections/metafi-contact-section";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import { useTranslations } from "@/i18n/ui";
+
+const lang = "es";
+const pageKey = "contact";
+const t = useTranslations(lang);
+---
+
+<DefaultLayout
+  title={t("pages:contact.title")}
+  description={t("pages:contact.description")}
+  lang={lang}
+  pageKey={pageKey}
+>
+  <MetafiContact />
+</DefaultLayout>

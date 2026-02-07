@@ -8,7 +8,43 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 
-export default function MetafiLogin() {
+type MetafiLoginProps = {
+  title?: string;
+  subtitle?: string;
+  emailLabel?: string;
+  emailPlaceholder?: string;
+  passwordLabel?: string;
+  passwordPlaceholder?: string;
+  forgotPassword?: string;
+  signInButton?: string;
+  orSignInWith?: string;
+  signInGoogle?: string;
+  signInFacebook?: string;
+  noAccount?: string;
+  signUpLink?: string;
+  signUpUrl?: string;
+  showPasswordLabel?: string;
+  hidePasswordLabel?: string;
+};
+
+export default function MetafiLogin({
+  title = "Sign in to your account",
+  subtitle = "Welcome back! Please enter your details",
+  emailLabel = "Email",
+  emailPlaceholder = "johndoe@mail.com",
+  passwordLabel = "Password",
+  passwordPlaceholder = "Password",
+  forgotPassword = "Forgot password?",
+  signInButton = "Sign In",
+  orSignInWith = "Or sign in with",
+  signInGoogle = "Sign in with Google",
+  signInFacebook = "Sign in with Facebook",
+  noAccount = "Don't have an account?",
+  signUpLink = "Sign Up",
+  signUpUrl = "/signup",
+  showPasswordLabel = "Show password",
+  hidePasswordLabel = "Hide password",
+}: MetafiLoginProps) {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -26,10 +62,10 @@ export default function MetafiLogin() {
           </div>
 
           <h1 className="text-foreground text-2xl font-medium tracking-tight sm:text-3xl">
-            Sign in to your account
+            {title}
           </h1>
           <p className="text-muted-foreground mx-auto mt-2 max-w-md text-sm">
-            Welcome back! Please enter your details
+            {subtitle}
           </p>
 
           <Card className="border-border-light shadow-light bg-card mx-auto mt-6 w-full max-w-md rounded-[12px] border text-left sm:mt-8">
@@ -41,12 +77,12 @@ export default function MetafiLogin() {
                     htmlFor="email"
                     className="text-muted-foreground mb-2 block text-sm"
                   >
-                    Email
+                    {emailLabel}
                   </label>
                   <Input
                     id="email"
                     type="email"
-                    placeholder="johndoe@mail.com"
+                    placeholder={emailPlaceholder}
                     className="h-11 rounded-[8px]"
                     required
                   />
@@ -57,20 +93,20 @@ export default function MetafiLogin() {
                     htmlFor="password"
                     className="text-muted-foreground mb-2 block text-sm"
                   >
-                    Password
+                    {passwordLabel}
                   </label>
                   <div className="relative">
                     <Input
                       id="password"
                       type={showPassword ? "text" : "password"}
-                      placeholder="Password"
+                      placeholder={passwordPlaceholder}
                       className="h-11 rounded-[8px] pr-10"
                       required
                     />
                     <button
                       type="button"
                       aria-label={
-                        showPassword ? "Hide password" : "Show password"
+                        showPassword ? hidePasswordLabel : showPasswordLabel
                       }
                       className="text-muted-foreground/80 hover:text-foreground absolute right-2 top-1/2 -translate-y-1/2 rounded p-1"
                       onClick={() => setShowPassword((s) => !s)}
@@ -89,7 +125,7 @@ export default function MetafiLogin() {
                     href="/forgot-password"
                     className="text-tagline text-sm hover:underline"
                   >
-                    Forgot password?
+                    {forgotPassword}
                   </a>
                 </div>
 
@@ -97,13 +133,13 @@ export default function MetafiLogin() {
                   type="submit"
                   className="bg-foreground text-primary-foreground hover:bg-foreground/90 h-11 w-full rounded-[8px]"
                 >
-                  Sign In
+                  {signInButton}
                 </Button>
 
                 <div className="my-2 flex items-center">
                   <span className="bg-border/70 h-px flex-1" />
                   <span className="text-muted-foreground mx-3 whitespace-nowrap text-xs">
-                    Or sign in with
+                    {orSignInWith}
                   </span>
                   <span className="bg-border/70 h-px flex-1" />
                 </div>
@@ -115,7 +151,7 @@ export default function MetafiLogin() {
                     className="h-11 w-full justify-center rounded-[8px] font-medium"
                   >
                     <FcGoogle className="mr-2 size-5" />
-                    Sign in with Google
+                    {signInGoogle}
                   </Button>
 
                   <Button
@@ -124,15 +160,15 @@ export default function MetafiLogin() {
                     className="h-11 w-full justify-center rounded-[8px] font-medium"
                   >
                     <Facebook className="mr-2 size-5" />
-                    Sign in with Facebook
+                    {signInFacebook}
                   </Button>
                 </div>
               </form>
 
               <p className="text-muted-foreground mt-6 text-center text-sm">
-                Don’t have an account?{" "}
-                <a href="/signup" className="text-tagline hover:underline">
-                  Sign Up
+                {noAccount}{" "}
+                <a href={signUpUrl} className="text-tagline hover:underline">
+                  {signUpLink}
                 </a>
               </p>
             </CardContent>

@@ -3,23 +3,137 @@ import { ClientRouter } from "astro:transitions";
 import BaseHead from "@/components/BaseHead.astro";
 import { Footer } from "@/components/sections/footer";
 import Navbar from "@/components/sections/navbar";
+import HreflangTags from "@/components/i18n/HreflangTags.astro";
+import LanguagePicker from "@/components/i18n/LanguagePicker.astro";
+import { DEFAULT_LANG, type Lang } from "@/i18n/config";
+import type { PageKey } from "@/i18n/routes";
+import { useTranslations } from "@/i18n/ui";
+import { useTranslatedPath } from "@/i18n/utils";
 
 interface Props {
   title: string;
   description?: string;
+  /** Language for this page (defaults to 'es') */
+  lang?: Lang;
+  /** Page key for i18n routing (defaults to 'home') */
+  pageKey?: PageKey;
 }
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  lang = DEFAULT_LANG,
+  pageKey = "home",
+} = Astro.props;
+
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+// Build localized nav items
+const navItems = [
+  { label: t("nav.features"), href: translatePath("/funcionalidades") },
+  { label: t("nav.integrations"), href: translatePath("/integraciones") },
+  { label: t("nav.about"), href: translatePath("/nosotros") },
+  { label: t("nav.pricing"), href: translatePath("/precios") },
+  { label: t("nav.blog"), href: translatePath("/blog") },
+  { label: t("nav.contact"), href: translatePath("/contacto") },
+];
+
+// Build localized footer columns
+const footerColumns = [
+  {
+    title: t("footer.product"),
+    links: [
+      { name: t("nav.features"), href: translatePath("/funcionalidades") },
+      { name: t("nav.integrations"), href: translatePath("/integraciones") },
+      { name: t("nav.pricing"), href: translatePath("/precios") },
+    ],
+  },
+  {
+    title: t("footer.company"),
+    links: [
+      { name: t("nav.about"), href: translatePath("/nosotros") },
+      { name: t("footer.careers"), href: translatePath("/empleo") },
+      { name: t("nav.contact"), href: translatePath("/contacto") },
+      { name: t("nav.blog"), href: translatePath("/blog") },
+    ],
+  },
+  {
+    title: t("footer.legal"),
+    links: [
+      { name: t("footer.privacy"), href: translatePath("/privacidad") },
+      { name: t("footer.terms"), href: translatePath("/terminos") },
+      { name: t("footer.cookies"), href: translatePath("/cookies") },
+      { name: t("footer.signup"), href: translatePath("/registro") },
+      { name: t("nav.login"), href: translatePath("/login") },
+    ],
+  },
+];
 ---
 
-<html lang="es">
+<html lang={lang}>
   <head>
     <BaseHead title={title} description={description} />
+    <HreflangTags pageKey={pageKey} />
     <ClientRouter />
   </head>
   <body class="h-screen antialiased">
-    <Navbar client:load />
+    <Navbar
+      client:load
+      navItems={navItems}
+      loginText={t("nav.login")}
+      ctaText={t("nav.getStarted")}
+      loginHref={translatePath("/login")}
+      ctaHref={translatePath("/precios")}
+    />
     <main><slot /></main>
-    <Footer />
+    <Footer columns={footerColumns} copyright={t("footer.copyright")} />
+
+    <!--
+      Astro LanguagePicker - Pure Astro component for reliable navigation
+      Positioned with CSS to appear in the header area
+    -->
+    <div class="language-picker-container">
+      <LanguagePicker pageKey={pageKey} lang={lang} />
+    </div>
+
+    <style>
+      .language-picker-container {
+        position: fixed;
+        top: 1.25rem; /* 20px - vertically center in h-20 header */
+        right: 8rem; /* Position before theme toggle */
+        z-index: 100;
+      }
+
+      /* Hide on mobile - will show in mobile menu */
+      @media (max-width: 1023px) {
+        .language-picker-container {
+          display: none;
+        }
+      }
+    </style>
+
+    <!--
+      Script to clone LanguagePicker into mobile menu placeholder
+      Runs after DOM is ready
+    -->
+    <script>
+      function initMobileLanguagePicker() {
+        const picker = document.querySelector('.language-picker-container .language-picker');
+        const mobileContainer = document.getElementById('language-picker-mobile');
+
+        if (picker && mobileContainer && !mobileContainer.querySelector('.language-picker')) {
+          const clone = picker.cloneNode(true) as HTMLElement;
+          clone.querySelector('select')?.classList.add('w-full');
+          mobileContainer.appendChild(clone);
+        }
+      }
+
+      // Run on initial load
+      initMobileLanguagePicker();
+
+      // Re-run after View Transitions
+      document.addEventListener('astro:page-load', initMobileLanguagePicker);
+    </script>
   </body>
 </html>

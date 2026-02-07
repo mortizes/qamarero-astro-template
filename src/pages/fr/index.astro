@@ -1,0 +1,120 @@
+---
+/**
+ * French Home Page
+ * URL: /fr/
+ */
+import { type CollectionEntry, getCollection } from "astro:content";
+
+import MetafiCta from "@/components/sections/matafi-cta";
+import MetafiFaq from "@/components/sections/metafi-faq";
+import MetafiFeaturedBlogPosts from "@/components/sections/metafi-featured-blog-posts";
+import MetafiFeatures from "@/components/sections/metafi-features";
+import MetafiHero from "@/components/sections/MetafiHero.astro";
+import MetafiIntegrations from "@/components/sections/metafi-integrations";
+import MetafiLogos from "@/components/sections/metafi-logos";
+import MetafiTestimonials from "@/components/sections/metafi-testimonials";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import { useTranslations } from "@/i18n/ui";
+import { useTranslatedPath } from "@/i18n/utils";
+
+const lang = "fr";
+const pageKey = "home";
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+type BlogEntry = CollectionEntry<"blog">;
+
+const entries: BlogEntry[] = await getCollection("blog");
+
+const allPosts = entries.map((p) => ({
+  slug: p.slug,
+  title: (p.data.title || p.slug.replace(/-/g, " ")).trim(),
+  description: p.data.description ?? "",
+  tagline: p.data.tagline ?? "",
+  author: p.data.author ?? "",
+  date: (p.data.date ?? p.data.published)?.toISOString() ?? "",
+  coverImage: p.data.coverImage ?? p.data.image ?? "",
+  latest: !!p.data.latest,
+}));
+
+const latest = allPosts.filter((p) => p.latest).slice(0, 4);
+
+const cards = latest.map((p) => ({
+  slug: p.slug,
+  title: p.title,
+  intro: p.description,
+  tagline: p.tagline,
+  author: p.author,
+  date: p.date,
+  coverImage: p.coverImage,
+}));
+
+// Features data
+const featuresData = [
+  {
+    title: t("features.tpv.title"),
+    description: t("features.tpv.description"),
+    image: "/images/homepage/features/animation1.svg",
+  },
+  {
+    title: t("features.orders.title"),
+    description: t("features.orders.description"),
+    image: "/images/homepage/features/recurring-billing.webp",
+  },
+  {
+    title: t("features.qr.title"),
+    description: t("features.qr.description"),
+    image: "/images/homepage/features/invoicing.webp",
+  },
+  {
+    title: t("features.reservations.title"),
+    description: t("features.reservations.description"),
+    image: "/images/homepage/features/payment-link.webp",
+  },
+];
+
+// FAQ data - t() returns array directly
+const faqItems = t("faq.items") as Array<{ question: string; answer: string }>;
+---
+
+<DefaultLayout
+  title={t("hero.title")}
+  description={t("hero.description")}
+  lang={lang}
+  pageKey={pageKey}
+>
+  <MetafiHero
+    title={t("hero.title")}
+    description={t("hero.description")}
+    primaryCta={t("hero.primaryCta")}
+    primaryCtaHref={translatePath("/tarifs")}
+    secondaryCta={t("hero.secondaryCta")}
+    secondaryCtaHref={translatePath("/fonctionnalites")}
+  />
+  <MetafiLogos />
+  <MetafiFeatures
+    client:visible
+    tagline={t("features.tagline")}
+    title={t("features.title")}
+    description={t("features.description")}
+    features={featuresData}
+  />
+  <MetafiIntegrations />
+  <MetafiTestimonials client:visible />
+  <MetafiFaq
+    client:visible
+    tagline={t("faq.tagline")}
+    title={t("faq.title")}
+    description={t("faq.description")}
+    items={faqItems}
+  />
+  <MetafiFeaturedBlogPosts posts={cards} />
+  <MetafiCta
+    title={t("cta.title")}
+    description={t("cta.description")}
+    primaryCta={t("cta.getStarted")}
+    primaryCtaHref={translatePath("/tarifs")}
+    secondaryCta={t("cta.contact")}
+    secondaryCtaHref={translatePath("/contact")}
+  />
+</DefaultLayout>

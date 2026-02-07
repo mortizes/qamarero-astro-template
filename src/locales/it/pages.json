@@ -1,0 +1,66 @@
+{
+  "home": {
+    "title": "Software POS per Ristoranti | Qamarero",
+    "description": "Soluzione completa di gestione per la ristorazione. POS, ordini, menu QR, prenotazioni e delivery. 99€/mese tutto incluso."
+  },
+  "features": {
+    "title": "Funzionalità | Qamarero",
+    "description": "Scopri tutte le funzionalità di Qamarero: POS touch, ordini digitali, menu QR, prenotazioni online e altro."
+  },
+  "pricing": {
+    "title": "Prezzi | Qamarero",
+    "description": "Piano unico a 99€/mese tutto incluso. Senza commissioni nascoste, senza hardware obbligatorio, supporto 24/7."
+  },
+  "integrations": {
+    "title": "Integrazioni | Qamarero",
+    "description": "Collega Qamarero ai tuoi strumenti preferiti: Glovo, Uber Eats, contabilità e altro."
+  },
+  "about": {
+    "title": "Chi siamo | Qamarero",
+    "description": "Conosci il team dietro Qamarero. Più di 1.500 ristoranti si fidano di noi."
+  },
+  "blog": {
+    "title": "Blog | Qamarero",
+    "description": "Notizie, consigli e tendenze del settore della ristorazione."
+  },
+  "contact": {
+    "title": "Contatto | Qamarero",
+    "description": "Hai domande? Contatta il nostro team. Risposta entro 24 ore."
+  },
+  "login": {
+    "title": "Accesso | Qamarero",
+    "description": "Accedi al tuo account Qamarero per gestire il tuo ristorante."
+  },
+  "signup": {
+    "title": "Registrazione | Qamarero",
+    "description": "Crea il tuo account Qamarero e inizia a digitalizzare il tuo ristorante."
+  },
+  "careers": {
+    "title": "Lavora con Noi | Qamarero",
+    "description": "Unisciti al team Qamarero. Offerte di lavoro e opportunità professionali."
+  },
+  "privacy": {
+    "title": "Privacy Policy | Qamarero",
+    "description": "Come raccogliamo, utilizziamo e proteggiamo le tue informazioni personali.",
+    "overline": "Legale",
+    "heading": "Privacy Policy",
+    "subtitle": "Come raccogliamo, utilizziamo e proteggiamo le tue informazioni quando usi Qamarero.",
+    "updatedAt": "Aggiornato Ott 2025"
+  },
+  "terms": {
+    "title": "Termini e Condizioni | Qamarero",
+    "description": "Termini e condizioni d'uso di Qamarero.",
+    "overline": "Legale",
+    "heading": "Termini e Condizioni",
+    "subtitle": "I termini che regolano l'uso dei servizi Qamarero.",
+    "updatedAt": "Aggiornato Ott 2025"
+  },
+  "cookie-policy": {
+    "title": "Cookie Policy | Qamarero",
+    "description": "Come utilizziamo i cookie su Qamarero.",
+    "overline": "Legale",
+    "heading": "Cookie Policy",
+    "subtitle": "Informazioni sui cookie che utilizziamo e come gestirli.",
+    "updatedAt": "Aggiornato Ott 2025"
+  }
+}

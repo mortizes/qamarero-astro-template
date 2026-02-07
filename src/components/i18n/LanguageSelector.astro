@@ -1,0 +1,95 @@
+---
+/**
+ * LanguageSelector Component
+ * Dropdown to switch between languages
+ *
+ * Features:
+ * - Shows all available languages
+ * - Preserves page context when switching (if page exists in target language)
+ * - Falls back to home if page doesn't exist in target language
+ * - Indicates visually when falling back to home
+ *
+ * @example
+ * <LanguageSelector pageKey="pricing" currentLang="es" />
+ */
+
+import { LANGUAGES, languageConfig, type Lang } from '../../i18n/config';
+import { switchLanguageUrl, pageExistsIn } from '../../i18n/utils';
+import type { PageKey } from '../../i18n/routes';
+
+interface Props {
+  pageKey: PageKey;
+  currentLang: Lang;
+  class?: string;
+}
+
+const { pageKey, currentLang, class: className } = Astro.props;
+const currentUrl = Astro.url;
+
+// Generate URLs for all languages
+const languageOptions = LANGUAGES.map((lang) => {
+  const url = switchLanguageUrl(currentUrl, lang);
+  const exists = pageExistsIn(pageKey, lang);
+  const { label, flag } = languageConfig[lang];
+
+  return {
+    lang,
+    url,
+    exists,
+    label,
+    flag,
+    isCurrent: lang === currentLang,
+  };
+});
+---
+
+<div class:list={['language-selector', className]}>
+  <select
+    class="appearance-none bg-transparent border border-gray-300 dark:border-gray-700 rounded-md px-3 py-1.5 pr-8 text-sm cursor-pointer hover:border-gray-400 dark:hover:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+    onchange="window.location.href = this.value"
+    aria-label="Seleccionar idioma / Select language"
+  >
+    {languageOptions.map(({ lang, url, exists, label, flag, isCurrent }) => (
+      <option
+        value={url}
+        selected={isCurrent}
+        data-lang={lang}
+        data-exists={exists.toString()}
+      >
+        {flag} {label} {!exists && '(inicio)'}
+      </option>
+    ))}
+  </select>
+
+  {/* Dropdown arrow icon */}
+  <svg
+    class="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none text-gray-500 dark:text-gray-400"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M19 9l-7 7-7-7"
+    />
+  </svg>
+</div>
+
+<style>
+  .language-selector {
+    position: relative;
+    display: inline-block;
+  }
+
+  .language-selector select {
+    min-width: 140px;
+  }
+
+  /* Hide default arrow in some browsers */
+  .language-selector select::-ms-expand {
+    display: none;
+  }
+</style>

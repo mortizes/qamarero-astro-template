@@ -1,0 +1,30 @@
+---
+/**
+ * Italian Cookie Policy Page
+ * URL: /it/politica-cookie/
+ */
+import LegalArticle from "@/components/sections/legal-article";
+import CookieContent from "@/content/cookie-policy.mdx";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import { useTranslations } from "@/i18n/ui";
+
+const lang = "it";
+const pageKey = "cookie-policy";
+const t = useTranslations(lang);
+---
+
+<DefaultLayout
+  title={t("pages:cookie-policy.title")}
+  description={t("pages:cookie-policy.description")}
+  lang={lang}
+  pageKey={pageKey}
+>
+  <LegalArticle
+    overline={t("pages:cookie-policy.overline")}
+    title={t("pages:cookie-policy.heading")}
+    subtitle={t("pages:cookie-policy.subtitle")}
+    updatedAt={t("pages:cookie-policy.updatedAt")}
+  >
+    <CookieContent />
+  </LegalArticle>
+</DefaultLayout>

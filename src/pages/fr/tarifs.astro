@@ -1,0 +1,28 @@
+---
+/**
+ * French Pricing Page
+ * URL: /fr/tarifs/
+ */
+import MetafiCta from "@/components/sections/matafi-cta";
+import MetafiFaq from "@/components/sections/metafi-faq";
+import MetafiFeaturesIncluded from "@/components/sections/metafi-features-included";
+import MetafiPricingHero from "@/components/sections/metafi-pricing-hero";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import { useTranslations } from "@/i18n/ui";
+
+const lang = "fr";
+const pageKey = "pricing";
+const t = useTranslations(lang);
+---
+
+<DefaultLayout
+  title={t("pages:pricing.title")}
+  description={t("pages:pricing.description")}
+  lang={lang}
+  pageKey={pageKey}
+>
+  <MetafiPricingHero client:load />
+  <MetafiFeaturesIncluded />
+  <MetafiFaq client:visible />
+  <MetafiCta client:visible />
+</DefaultLayout>

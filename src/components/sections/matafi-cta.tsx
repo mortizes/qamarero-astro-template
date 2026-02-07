@@ -1,6 +1,22 @@
 import { Button } from "@/components/ui/button";
 
-const MetafiCta = () => {
+interface MetafiCtaProps {
+  title?: string;
+  description?: string;
+  primaryCta?: string;
+  primaryCtaHref?: string;
+  secondaryCta?: string;
+  secondaryCtaHref?: string;
+}
+
+const MetafiCta = ({
+  title = "Simplifying Payments for Growing Business",
+  description = "Join over 300+ partners and customers already growing with Metafi",
+  primaryCta = "Get Started",
+  primaryCtaHref = "/pricing",
+  secondaryCta = "Contact Us",
+  secondaryCtaHref = "/contact",
+}: MetafiCtaProps) => {
   return (
     <section
       id="metafi-cta"
@@ -14,12 +30,11 @@ const MetafiCta = () => {
 
       <div className="container relative px-0 py-16 text-center sm:py-20 md:px-6 md:py-28">
         <h2 className="text-primary-foreground mx-auto max-w-5xl text-balance text-4xl font-medium leading-tight sm:text-5xl md:text-6xl">
-          Simplifying Payments
-          <br className="hidden sm:block" /> for Growing Business
+          {title}
         </h2>
 
         <p className="text-primary-foreground/80 mx-auto mt-4 max-w-2xl text-base font-normal sm:text-lg">
-          Join over 300+ partners and customers already growing with Metafi
+          {description}
         </p>
 
         <div className="mt-8 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
@@ -28,7 +43,7 @@ const MetafiCta = () => {
             asChild
             className="bg-primary-foreground text-tagline hover:bg-primary-foreground/90 h-12 w-full rounded-[12px] sm:w-auto"
           >
-            <a href="/pricing">Get Started</a>
+            <a href={primaryCtaHref}>{primaryCta}</a>
           </Button>
 
           {/* Transparent button */}
@@ -37,7 +52,7 @@ const MetafiCta = () => {
             variant="ghost"
             className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 h-12 w-full rounded-[12px] border bg-transparent sm:w-auto"
           >
-            <a href="/contact">Contact Us</a>
+            <a href={secondaryCtaHref}>{secondaryCta}</a>
           </Button>
         </div>
       </div>

@@ -1,0 +1,32 @@
+---
+/**
+ * Italian Features Page
+ * URL: /it/funzionalita/
+ */
+import MetafiCta from "@/components/sections/matafi-cta";
+import MetafiFeatureBenefits from "@/components/sections/metafi-feature-benefits";
+import MetafiFeaturePricing from "@/components/sections/metafi-feature-pricing";
+import MetafiFeaturesHero from "@/components/sections/metafi-features-section";
+import MetafiIntegrations from "@/components/sections/metafi-integrations";
+import MetafiFeaturesTabs from "@/components/sections/metafi-tabs";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import { useTranslations } from "@/i18n/ui";
+
+const lang = "it";
+const pageKey = "features";
+const t = useTranslations(lang);
+---
+
+<DefaultLayout
+  title={t("pages:features.title")}
+  description={t("pages:features.description")}
+  lang={lang}
+  pageKey={pageKey}
+>
+  <MetafiFeaturesHero />
+  <MetafiFeatureBenefits />
+  <MetafiFeaturesTabs client:load />
+  <MetafiFeaturePricing />
+  <MetafiIntegrations />
+  <MetafiCta />
+</DefaultLayout>
