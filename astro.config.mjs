@@ -1,8 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/sitemap";
-
 import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 
@@ -24,22 +22,8 @@ export default defineConfig({
     },
   },
 
-  integrations: [
-    mdx(),
-    sitemap({
-      // i18n configuration for sitemap
-      i18n: {
-        defaultLocale: "es",
-        locales: {
-          es: "es",
-          fr: "fr",
-          en: "en",
-          it: "it",
-        },
-      },
-    }),
-    react(),
-  ],
+  // Using custom sitemap at /sitemap.xml with proper hreflang support
+  integrations: [mdx(), react()],
   output: "static",
 
   vite: {
