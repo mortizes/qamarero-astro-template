@@ -81,11 +81,11 @@ const Navbar = () => {
       <div className="container flex h-20 items-center justify-between lg:grid lg:grid-cols-[auto_1fr_auto]">
         <a href="/" className="flex items-center gap-2">
           <img
-            src="/images/layout/logo.svg"
-            alt="Metafi"
-            width={129}
-            height={32}
-            className="invert-0 dark:invert"
+            src="/qamarero-logo.svg"
+            alt="Qamarero"
+            width={138}
+            height={40}
+            className="h-8 w-auto dark:invert"
           />
         </a>
 

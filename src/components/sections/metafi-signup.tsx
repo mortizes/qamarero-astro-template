@@ -17,8 +17,8 @@ export default function MetafiSignup() {
         <div className="bg-features-hero rounded-[16px] px-6 py-12 text-center sm:px-8 sm:py-16 md:py-20">
           <div className="mb-4 flex size-12 w-full items-center justify-center rounded-full sm:mb-5">
             <img
-              src="/images/layout/logo-single.svg"
-              alt="Metafi logo"
+              src="/favicon.svg"
+              alt="Qamarero"
               width={40}
               height={40}
               className="h-10 w-10"

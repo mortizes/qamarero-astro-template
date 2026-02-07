@@ -42,13 +42,13 @@ export const Footer = () => {
       <div className="container py-12 md:py-16">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="md:min-w-[140px]">
-            <a href="/" aria-label="Metafi">
+            <a href="/" aria-label="Qamarero">
               <img
-                src="/images/layout/logo.svg"
-                alt="Metafi"
-                width={140}
-                height={32}
-                className="invert"
+                src="/qamarero-logo.svg"
+                alt="Qamarero"
+                width={138}
+                height={40}
+                className="h-8 w-auto"
                 loading="lazy"
                 decoding="async"
               />
