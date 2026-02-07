@@ -1,8 +1,0 @@
-# Robots.txt for Qamarero
-# https://qamarero.com
-
-User-agent: *
-Allow: /
-
-# Sitemap location
-Sitemap: https://qamarero.com/sitemap.xml
