@@ -80,12 +80,21 @@ const Navbar = () => {
     <header className="bg-background border-border relative z-50 h-20 border-b px-2.5 lg:px-0">
       <div className="container flex h-20 items-center justify-between lg:grid lg:grid-cols-[auto_1fr_auto]">
         <a href="/" className="flex items-center gap-2">
+          {/* Logo negro para light mode */}
           <img
-            src="/qamarero-logo.svg"
+            src="/qamarero-logo-negro.svg"
             alt="Qamarero"
             width={138}
             height={40}
-            className="h-8 w-auto dark:invert"
+            className="h-8 w-auto dark:hidden"
+          />
+          {/* Logo blanco para dark mode */}
+          <img
+            src="/qamarero-logo-blanco.svg"
+            alt="Qamarero"
+            width={138}
+            height={40}
+            className="hidden h-8 w-auto dark:block"
           />
         </a>
 

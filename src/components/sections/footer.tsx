@@ -44,7 +44,7 @@ export const Footer = () => {
           <div className="md:min-w-[140px]">
             <a href="/" aria-label="Qamarero">
               <img
-                src="/qamarero-logo.svg"
+                src="/qamarero-logo-blanco.svg"
                 alt="Qamarero"
                 width={138}
                 height={40}
@@ -82,7 +82,7 @@ export const Footer = () => {
 
         <div className="mt-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <p className="text-muted-foreground text-sm font-normal">
-            © {new Date().getFullYear()} Metafi. All rights reserved
+            © {new Date().getFullYear()} Qamarero. All rights reserved
           </p>
 
           <div className="flex items-center gap-4">
